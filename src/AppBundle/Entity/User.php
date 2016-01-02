@@ -6,6 +6,7 @@
  * Time: 21:50
  */
 namespace AppBundle\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -40,8 +41,11 @@ class User {
   * @ORM\Column(type="datetime")
   */
   protected $geburtsdatum;
-
-
+  /**
+      * @ORM\OneToOne(targetEntity="Anzeige")
+      * @ORM\JoinColumn(name="anzeige_id", referencedColumnName="id")
+      */
+  protected $anzeige;
     /**
      * Get the value of Id
      *
@@ -158,6 +162,33 @@ class User {
     public function setGeburtsdatum($geburtsdatum)
     {
         $this->geburtsdatum = $geburtsdatum;
+
+        return $this;
+    }
+
+
+
+
+    /**
+     * Get the value of Anzeige
+     *
+     * @return mixed
+     */
+    public function getAnzeige()
+    {
+        return $this->anzeige;
+    }
+
+    /**
+     * Set the value of Anzeige
+     *
+     * @param mixed anzeige
+     *
+     * @return self
+     */
+    public function setAnzeige($anzeige)
+    {
+        $this->anzeige = $anzeige;
 
         return $this;
     }

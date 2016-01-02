@@ -16,4 +16,26 @@ class AnzeigeController extends Controller{
        // replace this example code with whatever you need
        return new Response("hallo");
    }
+
+   /**
+    * @Route("/getAnzeigen", name="getAnzeigen")
+    */
+    public function getAnzeigen(Request $request)
+    {
+        $users = $this->getDoctrine()->getRepository('AppBundle:User')->findAll();
+        $data = array();
+        foreach ($users as $user){
+           $data[] = array(
+               "id" => $user->getId(),
+               "geschlecht" => $user->getGeschlecht(),
+               "spitzname" => $user->getSpitzname(),
+               "geburtsdatum" => $user->getGeburtsdatum(),
+               "anzeigeText" => $user->getAnzeige()->getAnzeigeText(),
+               "anzeigeDatum" => $user->getAnzeige()->getEintrageDatum(),
+           );
+       }
+
+        // replace this example code with whatever you need
+        return new Response(json_encode($data));
+    }
 }
