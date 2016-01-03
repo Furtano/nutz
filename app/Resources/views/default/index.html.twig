@@ -10,39 +10,64 @@
 <div class="row">
 <div ng-app="app">
    <div ng-controller="MainController">
-     <div ng-repeat="anzeige in anzeigen" class="col-md-4">
+     <div id="geschlechtnavi" style="text-align: center; padding-top:20px;">
+       <div class="helper">
+         Nach welchem Geschlecht suchst du?
+       </div>
+       <a href="#m" ng-click="geschlechtAuswahl = true" ng-show="man"><i class="fa fa-male" style="font-size: 80px;"></i></a>
+       <a href="#w" ng-click="geschlechtAuswahl = false" ng-show="woman"><i class="fa fa-female" style="padding-left: 30px;font-size: 80px;"></i></a>
+     </div>
+
+
+     <div ng-repeat="anzeige in anzeigen | filter:{geschlecht:geschlechtAuswahl}" class="col-md-4">
          <div class="eineAnzeige spitzname">
                  <div class="anzeigenkopf">
            <span ng-if="anzeige.geschlecht"><i class="fa fa-male"></i> </span>
            <span ng-if="!anzeige.geschlecht"><i class="fa fa-female"></i> </span>
            {{ '{{anzeige.spitzname}}' }}
           </div>
-           {{ '{{anzeige.anzeigeText}}' }}<br/>
+           {{ '{{anzeige.anzeigeText}}' }}<br/ >
           <div style="text-align: right">{{ '{{anzeige.geburtsdatum}}'}}</div><br/>
-          <button type="submit" class="btn btn-warning" style="float: right;"> {{ '{{anzeige.spitzname}}' }} kontaktieren</button>
+          <button type="button" class="btn btn-warning btn-md" data-toggle="modal" data-target="#myModal">
+            {{'{{anzeige.spitzname}}'}} schreiben
+          </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">{{'{{anzeige.spitzname}}'}} schreiben</h4>
+            </div>
+            <div class="modal-body">
+
+              <textarea style="border: orange solid 1px;" ng-model="$parent.nachricht" name="nachricht" cols="55" rows="5">
+              </textarea>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
+              <button ng-click="nachrichtSchicken(anzeige)" type="button" class="btn btn-warning">Nachricht schicken</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
          </div>
 
 
      </div>
-</div>
-</div>
-</div>
 
-
-
-<div id="geschlechtnavi" style="text-align: center; padding-top:20px;">
-  <div class="helper">
-    Nach welchem Geschlecht suchst du?
-  </div>  <a href="#vor"><i class="fa fa-male" style="font-size: 80px;"></i></a>
-  <a href="#zurück"><i class="fa fa-female" style="padding-left: 30px;font-size: 80px;"></i></a>
-</div>
-
-
-
-<div id="navigation" style="text-align: center; padding-top:20px;">
+<div id="navigation"  class="col-xs-12" style="text-align: center; padding-top:20px;">
   <div class="helper">
     Vor oder Weiter?
   </div>  <a href="#vor"><i class="fa fa-chevron-left" style="font-size: 80px;"></i></a>
   <a href="#zurück"><i class="fa fa-chevron-right" style="padding-left: 30px;font-size: 80px;"></i></a>
+</div>
+
 </div>
 {% endblock %}
