@@ -1,10 +1,11 @@
-angular.module('app', []).controller("MainController", function($scope,$rootScope, $http){
+angular.module('app', []).controller("MainController", function($scope, $http){
   $scope.anzeigen = [];
   $scope.anzeigenGefiltert = [];
   $scope.man = true;
   $scope.woman = true;
   $scope.liebe = 'Test';
   $scope.liebeId = -2;
+  $scope.email;
 
 $scope.getAnzeigen = function(){
   $http.get('getAnzeigen' ).success(function(data){
@@ -24,7 +25,14 @@ $scope.getAnzeigen = function(){
 
 
   $scope.nachrichtSenden = function(anzeige){
-    $http.get('nachrichtSenden?id=' + anzeige.id + "&nachricht=" + $scope.nachricht ).success(function(data){});
+    $http.get(
+      'nachrichtSenden?id=' +
+      anzeige.id +
+      "&nachricht=" +
+      $scope.nachricht + 
+      "&interressentenEmail=" + 
+      anzeige.emaill
+     ).success(function(data){});
   };
 
 

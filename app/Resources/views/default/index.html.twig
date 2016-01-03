@@ -36,7 +36,8 @@
         <div ng-show="$parent.liebe == anzeige.id">
             <h3>Deine Nachricht an {{'{{anzeige.spitzname}}'}}</h3>
             <textarea name="nachricht" class="form-control" rows="5" id="comment" ng-model="$parent.nachricht"></textarea>
-            <button type="button" style="float: right;" ng-click="nachrichtSenden(anzeige,nachricht)" class="btn btn-warning btn-md">
+            <input type="email" name="email" ng-model="anzeige.emaill">
+            <button type="button" style="float: right;" ng-click="nachrichtSenden(anzeige)" class="btn btn-warning btn-md">
                 Senden!
             </button>
 
