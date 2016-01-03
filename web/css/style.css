@@ -46,3 +46,16 @@ body{
   text-align:center;
   color: rgb(240, 116, 37);
 }
+.helper {
+  font-family: 'Droid Sans', sans-serif;
+  color: black;
+  font-size: 20px;
+}
+
+i {
+  color: rgb(238, 144, 32);
+}
+
+i:hover {
+  color: white;
+}

@@ -3,7 +3,7 @@
 {% block body %}
 <div id="grad" class="col-md-12">
   <div id="logo">
-    <a href="/">Nutz <i class="fa fa-heart"></i> <span id="untertitel"> - die ehrlichen Kontaktanzeigen</span></a>
+    <a href="/">Nutz <i class="fa fa-heart"></i> <span id="untertitel"> - die ehrlichen Kontaktanzeigen | kostenlos und ohne Anmeldung</span></a>
   </div>
 </div>
 
@@ -21,8 +21,28 @@
           <div style="text-align: right">{{ '{{anzeige.geburtsdatum}}'}}</div><br/>
           <button type="submit" class="btn btn-warning" style="float: right;"> {{ '{{anzeige.spitzname}}' }} kontaktieren</button>
          </div>
+
+
      </div>
 </div>
 </div>
+</div>
+
+
+
+<div id="geschlechtnavi" style="text-align: center; padding-top:20px;">
+  <div class="helper">
+    Nach welchem Geschlecht suchst du?
+  </div>  <a href="#vor"><i class="fa fa-male" style="font-size: 80px;"></i></a>
+  <a href="#zurück"><i class="fa fa-female" style="padding-left: 30px;font-size: 80px;"></i></a>
+</div>
+
+
+
+<div id="navigation" style="text-align: center; padding-top:20px;">
+  <div class="helper">
+    Vor oder Weiter?
+  </div>  <a href="#vor"><i class="fa fa-chevron-left" style="font-size: 80px;"></i></a>
+  <a href="#zurück"><i class="fa fa-chevron-right" style="padding-left: 30px;font-size: 80px;"></i></a>
 </div>
 {% endblock %}
