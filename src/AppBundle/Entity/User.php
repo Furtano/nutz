@@ -119,7 +119,7 @@ class User {
     }
 
     /**
-     * Get the value of Profilbild Id
+     * Get the value of ProfilbigetSpitznameld Id
      *
      * @return mixed
      */
@@ -138,7 +138,6 @@ class User {
     public function setProfilbildId($profilbildId)
     {
         $this->profilbildId = $profilbildId;
-
         return $this;
     }
 
@@ -193,4 +192,25 @@ class User {
         return $this;
     }
 
+    /**
+     * @ORM\Column(type="string", length=255,  nullable=false)
+    */
+    protected $email;
+
+   public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Email
+     *
+     * @return mixed
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
 }

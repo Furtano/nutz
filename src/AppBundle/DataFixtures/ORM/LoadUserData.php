@@ -34,6 +34,7 @@ class LoadUserData implements FixtureInterface
         $userAdmin->setGeschlecht(1);
         $userAdmin->setGeburtsdatum(new \DateTime('02.02.2000'));
         $userAdmin->setProfilbildid(0);
+        $userAdmin->setEmail('schady@posteo.de');
         $userAdmin->setAnzeige($anzeige1);
         $manager->persist($userAdmin);
         $manager->flush();
@@ -44,6 +45,7 @@ class LoadUserData implements FixtureInterface
                 $userAdmin2->setGeburtsdatum(new \DateTime('02.02.2000'));
                 $userAdmin2->setProfilbildid(0);
                 $userAdmin2->setAnzeige($anzeige2);
+                $userAdmin2->setEmail('schady@posteo.de');
                 $manager->persist($userAdmin2);
                 $manager->flush();
 
@@ -53,6 +55,7 @@ class LoadUserData implements FixtureInterface
                         $userAdmin3->setGeschlecht(1);
                         $userAdmin3->setGeburtsdatum(new \DateTime('02.05.1955'));
                         $userAdmin3->setProfilbildid(0);
+                        $userAdmin3->setEmail('schady@posteo.de');
                         $userAdmin3->setAnzeige($anzeige3);
                         $manager->persist($userAdmin3);
                         $manager->flush();

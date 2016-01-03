@@ -1,8 +1,10 @@
-angular.module('app', []).controller("MainController", function($scope, $http){
+angular.module('app', []).controller("MainController", function($scope,$rootScope, $http){
   $scope.anzeigen = [];
   $scope.anzeigenGefiltert = [];
   $scope.man = true;
   $scope.woman = true;
+  $scope.liebe = 'Test';
+  $scope.liebeId = -2;
 
 $scope.getAnzeigen = function(){
   $http.get('getAnzeigen' ).success(function(data){
@@ -12,11 +14,17 @@ $scope.getAnzeigen = function(){
           $scope.anzeigen[i].geburtsdatum = moment($scope.anzeigen[i].geburtsdatum.date).locale("de").format('LL');
         }
 
+      console.log($scope.anzeigen);
+
       });
+
+
+
     };
 
-  $scope.nachrichtSchicken = function(data){
-    $http.get('sendeNachricht?id=' + data.id + "&nachricht=" + $scope.nachricht ).success(function(data){});
+
+  $scope.nachrichtSenden = function(anzeige){
+    $http.get('nachrichtSenden?id=' + anzeige.id + "&nachricht=" + $scope.nachricht ).success(function(data){});
   };
 
 
