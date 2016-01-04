@@ -7,7 +7,7 @@
 
 <div id="grad" class="col-md-12" style="z-index:2">
   <div id="logo">
-    <a href="/">Nutz <i class="fa fa-heart"></i> <span id="untertitel"> - die ehrlichen Kontaktanzeigen | kostenlos und ohne Anmeldung</span></a>
+    <a href="/"><span style="">Nutz</span> <img src="favicon.ico" width="40"><span id="untertitel"> - die ehrlichen Kontaktanzeigen | kostenlos und ohne Anmeldung</span></a>
   </div>
 </div>
 
@@ -42,15 +42,19 @@
         </button>
         </div><br/>
 
-        <div ng-show="$parent.liebe == anzeige.id">
+        <div ng-model="anzeige" ng-show="$parent.liebe == anzeige.id" class="eineAnzeige" style="background-color: rgb(236, 151, 31);">
+        <div ng-show="nachrichtGeschrieben">Danke! Nachricht wurde versendet.</div>
+        <div ng-hide="nachrichtGeschrieben">
             <h3>Deine Nachricht an {{'{{anzeige.spitzname}}'}}</h3>
             <textarea placeholder="Deine Nachricht" name="nachricht" class="form-control" rows="5" id="comment" ng-model="$parent.nachricht"></textarea>
-            <input type="text" id="email" required ng-model="$parent.emailia" class="form-control" placeholder="Deine Email">
-            <button type="button" style="float: right;" ng-click="nachrichtSenden(anzeige)" class="btn btn-warning btn-md">
+            <input type="text" id="email" required ng-model="$parent.emailia" class="form-control" placeholder="Deine Email"><br/>
+            <button type="button" ng-click="nachrichtGeschrieben = true; nachrichtSenden(anzeige)" style="float: right;" class="btn btn-warning btn-md">
                 Senden!
             </button>
-
+          </div>
         </div>
+
+
       </div>
     </div>
   </div>
