@@ -32,7 +32,7 @@ class LoadUserData implements FixtureInterface
         $userAdmin = new User();
         $userAdmin->setSpitzname('dummy');
         $userAdmin->setGeschlecht(1);
-        $userAdmin->setGeburtsdatum(new \DateTime('02.02.2000'));
+        $userAdmin->setAlter(22);
         $userAdmin->setProfilbildid(0);
         $userAdmin->setEmail('schady@posteo.de');
         $userAdmin->setAnzeige($anzeige1);
@@ -42,7 +42,7 @@ class LoadUserData implements FixtureInterface
                 $userAdmin2 = new User();
                 $userAdmin2->setSpitzname('nadine');
                 $userAdmin2->setGeschlecht(0);
-                $userAdmin2->setGeburtsdatum(new \DateTime('02.02.2000'));
+                $userAdmin2->setAlter(29);
                 $userAdmin2->setProfilbildid(0);
                 $userAdmin2->setAnzeige($anzeige2);
                 $userAdmin2->setEmail('schady@posteo.de');
@@ -53,7 +53,7 @@ class LoadUserData implements FixtureInterface
                         $userAdmin3 = new User();
                         $userAdmin3->setSpitzname('mate');
                         $userAdmin3->setGeschlecht(1);
-                        $userAdmin3->setGeburtsdatum(new \DateTime('02.05.1955'));
+                        $userAdmin3->setAlter(27);
                         $userAdmin3->setProfilbildid(0);
                         $userAdmin3->setEmail('schady@posteo.de');
                         $userAdmin3->setAnzeige($anzeige3);

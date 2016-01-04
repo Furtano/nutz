@@ -12,7 +12,7 @@ $scope.getAnzeigen = function(){
         $scope.anzeigen = data;
 
         for (var i = 0; i < data.length; i++){
-          $scope.anzeigen[i].geburtsdatum = moment($scope.anzeigen[i].geburtsdatum.date).locale("de").format('LL');
+          //$scope.anzeigen[i].geburtsdatgebuum = moment($scope.anzeigen[i].geburtsdatum.date).locale("de").format('LL');
         }
 
       console.log($scope.anzeigen);
@@ -29,12 +29,14 @@ $scope.getAnzeigen = function(){
       'nachrichtSenden?id=' +
       anzeige.id +
       "&nachricht=" +
-      $scope.nachricht + 
-      "&interressentenEmail=" + 
-      anzeige.emaill
-     ).success(function(data){});
-  };
+      $scope.nachricht +
+      "&email=" +
+      $scope.emailia
+     ).success(function(data){
+          console.log($scope.data);
 
+     });
+  };
 
 
     $scope.getAnzeigen();

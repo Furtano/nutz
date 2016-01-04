@@ -49,7 +49,7 @@ class AnzeigeController extends Controller{
       $empfaenger = $this->getDoctrine()->getRepository('AppBundle:User')->find($id);
       if($empfaenger){
         return new Response(        
-          var_dump(mail($empfaenger->getEmail(), $empfaenger->getSpitzname(), $nachricht, $empfaenger->getEmail()))
+          //var_dump(mail($empfaenger->getEmail(), $empfaenger->getSpitzname(), $nachricht, $empfaenger->getEmail()))
         );
       }
 

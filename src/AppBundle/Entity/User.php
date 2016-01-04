@@ -38,9 +38,9 @@ class User {
   */
   protected $profilbildId;
   /**
-  * @ORM\Column(type="datetime")
+  * @ORM\Column(type="integer")
   */
-  protected $geburtsdatum;
+  protected $alter;
   /**
       * @ORM\OneToOne(targetEntity="Anzeige")
       * @ORM\JoinColumn(name="anzeige_id", referencedColumnName="id")
@@ -142,25 +142,25 @@ class User {
     }
 
     /**
-     * Get the value of Geburtsdatum
+     * Get the value of alter
      *
      * @return mixed
      */
-    public function getGeburtsdatum()
+    public function getAlter()
     {
-        return $this->geburtsdatum;
+        return $this->alter;
     }
 
     /**
-     * Set the value of Geburtsdatum
+     * Set the value of alter
      *
-     * @param mixed geburtsdatum
+     * @param mixed alter
      *
      * @return self
      */
-    public function setGeburtsdatum($geburtsdatum)
+    public function setAlter($alter)
     {
-        $this->geburtsdatum = $geburtsdatum;
+        $this->alter = $alter;
 
         return $this;
     }
