@@ -11,7 +11,7 @@ class LoadAnzeigeData implements FixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        
+        return 20;
 
     }
 }

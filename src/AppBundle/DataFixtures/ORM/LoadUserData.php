@@ -15,50 +15,46 @@ class LoadUserData implements FixtureInterface
       $anzeige1->setAnzeigetext($lorem);
       $anzeige1->setEintrageDatum(new \DateTime("now"));
       $manager->persist($anzeige1);
-      $manager->flush();
+
       $anzeige2 = new Anzeige();
       $anzeige2->setAnzeigetext($lorem);
       $anzeige2->setEintrageDatum(new \DateTime("now"));
       $manager->persist($anzeige2);
-      $manager->flush();
 
       $anzeige3 = new Anzeige();
       $anzeige3->setAnzeigetext($lorem);
       $anzeige3->setEintrageDatum(new \DateTime("now"));
       $manager->persist($anzeige3);
-      $manager->flush();
-
 
         $userAdmin = new User();
-        $userAdmin->setSpitzname('dummy');
-        $userAdmin->setGeschlecht(1);
-        $userAdmin->setAlter(22);
-        $userAdmin->setProfilbildid(0);
-        $userAdmin->setEmail('schady@posteo.de');
         $userAdmin->setAnzeige($anzeige1);
+        $userAdmin->setSpitzname('dummy');
+        $userAdmin->setGeschlecht('1');
+        $userAdmin->setAlter('22');
+        $userAdmin->setProfilbildId('0');
+        $userAdmin->setEmail('sc1hady@posteo.de');
         $manager->persist($userAdmin);
-        $manager->flush();
 
                 $userAdmin2 = new User();
                 $userAdmin2->setSpitzname('nadine');
                 $userAdmin2->setGeschlecht(0);
                 $userAdmin2->setAlter(29);
-                $userAdmin2->setProfilbildid(0);
+                $userAdmin2->setProfilbildId(0);
                 $userAdmin2->setAnzeige($anzeige2);
-                $userAdmin2->setEmail('schady@posteo.de');
+                $userAdmin2->setEmail('scha4dy@posteo.de');
                 $manager->persist($userAdmin2);
-                $manager->flush();
 
 
                         $userAdmin3 = new User();
                         $userAdmin3->setSpitzname('mate');
                         $userAdmin3->setGeschlecht(1);
                         $userAdmin3->setAlter(27);
-                        $userAdmin3->setProfilbildid(0);
-                        $userAdmin3->setEmail('schady@posteo.de');
+                        $userAdmin3->setProfilbildId(0);
+                        $userAdmin3->setEmail('schad5y@posteo.de');
                         $userAdmin3->setAnzeige($anzeige3);
                         $manager->persist($userAdmin3);
                         $manager->flush();
+
 
     }
 }

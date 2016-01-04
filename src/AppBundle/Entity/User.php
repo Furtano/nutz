@@ -29,6 +29,13 @@ class User {
     * @ORM\Column(type="string", length=255,  nullable=false)
   */
   protected $spitzname;
+
+  /**
+   * @ORM\Column(type="string", length=255,  nullable=true)
+  */
+  protected $email;
+
+
   /**
     * @ORM\Column(type="boolean", nullable=false)
   */
@@ -38,7 +45,7 @@ class User {
   */
   protected $profilbildId;
   /**
-  * @ORM\Column(type="integer")
+  * @ORM\Column(type="string", length=255,  nullable=false)
   */
   protected $alter;
   /**
@@ -192,11 +199,14 @@ class User {
         return $this;
     }
 
-    /**
-     * @ORM\Column(type="string", length=255,  nullable=false)
-    */
-    protected $email;
 
+    /**
+     * Set the value of Anzeige
+     *
+     * @param mixed anzeige
+     *
+     * @return self
+     */
    public function setEmail($email)
     {
         $this->email = $email;

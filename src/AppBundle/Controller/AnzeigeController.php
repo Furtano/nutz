@@ -29,7 +29,7 @@ class AnzeigeController extends Controller{
        "id" => $user->getId(),
        "geschlecht" => $user->getGeschlecht(),
        "spitzname" => $user->getSpitzname(),
-       "geburtsdatum" => $user->getGeburtsdatum(),
+       "alter" => $user->getAlter(),
        "anzeigeText" => $user->getAnzeige()->getAnzeigeText(),
        "anzeigeDatum" => $user->getAnzeige()->getEintrageDatum(),
        );
@@ -48,7 +48,7 @@ class AnzeigeController extends Controller{
       $nachricht = $request->query->get('nachricht');
       $empfaenger = $this->getDoctrine()->getRepository('AppBundle:User')->find($id);
       if($empfaenger){
-        return new Response(        
+        return new Response(
           //var_dump(mail($empfaenger->getEmail(), $empfaenger->getSpitzname(), $nachricht, $empfaenger->getEmail()))
         );
       }

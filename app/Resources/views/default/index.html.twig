@@ -1,22 +1,31 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div id="grad" class="col-md-12">
+<div class="row">
+  <div ng-app="app">
+   <div ng-controller="MainController">
+
+<div id="grad" class="col-md-12" style="z-index:2">
   <div id="logo">
     <a href="/">Nutz <i class="fa fa-heart"></i> <span id="untertitel"> - die ehrlichen Kontaktanzeigen | kostenlos und ohne Anmeldung</span></a>
   </div>
 </div>
 
-<div class="row">
-  <div ng-app="app">
-   <div ng-controller="MainController">
-     <div id="geschlechtnavi" style="text-align: center; padding-top:20px;">
-       <div class="helper">
-         Welches Geschlecht soll dein Partner haben?
-       </div>
-       <a href="#m" ng-click="geschlechtAuswahl = true" ng-show="man"><i class="fa fa-male" style="font-size: 80px;"></i></a>
-       <a href="#w" ng-click="geschlechtAuswahl = false" ng-show="woman"><i class="fa fa-female" style="padding-left: 30px;font-size: 80px;"></i></a>
-     </div>
+<div class="col-md-12" style="background-color: white; opacity: 0.6; border-radius: 20px; margin-top: -5px; z-index: 1; position: relative;">
+  <i class="fa fa-pencil" style="font-size: 30px; padding: 10px;"></i><a href="mailto:schady@posteo.de?Subject=Anzeige schalten (nutz)&body=Bitte Spitzname, Alter und
+   Anzeigentext einfügen. Die Anzeige wird dann schnellstmöglichst online gestellt.
+   " style="color: black; font-size: 15px;">selber eine kostenlose Anzeige schalten</a>
+
+
+   <span style="color:black; font-size: 15px;margin-top: 10px; float: right;margin-right: 20px;">
+       Welches Geschlecht soll dein Partner haben?
+     <a href="#m" ng-click="geschlechtAuswahl = true" ng-show="man"><i class="fa fa-male" style="font-size: 30px;"></i></a>
+     <a href="#w" ng-click="geschlechtAuswahl = false" ng-show="woman"><i class="fa fa-female" style="font-size: 30px;"></i></a>
+   </span>
+
+</div>
+
+
 
      <!-- | filter:{geschlecht:geschlechtAuswahl}-->
      <div ng-repeat="anzeige in anzeigen | filter:{geschlecht:geschlechtAuswahl}" class="col-md-4">
@@ -24,7 +33,7 @@
          <div class="anzeigenkopf">
            <span ng-if="anzeige.geschlecht"><i class="fa fa-male"></i> </span>
            <span ng-if="!anzeige.geschlecht"><i class="fa fa-female"></i> </span>
-           {{ '{{anzeige.spitzname}}' }}<span style="text-align: left; color:grey;"> {{ '{{anzeige.alter}}'}}</span>
+           {{ '{{anzeige.spitzname}}' }}<span style="text-align: left; color:grey;"> ({{ '{{anzeige.alter}}'}})</span>
 
          </div>
          {{ '{{anzeige.anzeigeText}}' }}<br/ ><br/>
